@@ -57,3 +57,12 @@ resource "aws_route_table" "myntra-rt" {
     Name = "myntra-web-route-table"
   }
 }
+
+# Database route table
+
+resource "aws_route_table" "myntra-database-rt" {
+  vpc_id = aws_vpc.myntra-vpc.id
+
+ tags = {
+    Name = "myntra-database-route-table"
+  }
