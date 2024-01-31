@@ -179,3 +179,35 @@ resource "aws_security_group" "myntra-web-nacl-sg" {
     Name = "myntra-web-sg"
   }
 }
+
+# Databse security group
+resource "aws_security_group" "myntra-db-nacl-sg" {
+  name        = "myntra-db-traffic"
+  description = "Allow SSH - Postgres inbound traffic"
+  vpc_id      = aws_vpc.myntra-vpc.id
+
+  ingress {
+    description = "SSH from WWW"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.0/16"]
+  }
+
+  ingress {
+    description = "Postgres from WWW"
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.0/16"]
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "myntra-db-sg"
+  }
+}
