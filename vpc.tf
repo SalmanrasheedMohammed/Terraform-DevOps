@@ -73,4 +73,10 @@ resource "aws_route_table" "myntra-database-rt" {
 resource "aws_route_table_association" "myntra-web-asc" {
   subnet_id      = aws_subnet.myntra-web-sn.id
   route_table_id = aws_route_table.myntr-web-rt.id
+}  
+
+# Database Route table associtation
+resource "aws_route_table_association" "myntra-database-asc" {
+  subnet_id      = aws_subnet.myntra-db-sn.id
+  route_table_id = aws_route_table.myntra-database-rt.id
 }
