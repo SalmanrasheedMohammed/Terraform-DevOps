@@ -148,7 +148,7 @@ resource "aws_network_acl_association" "ibm-db-nacl-asc" {
 }
 
 # web security group
-resource "aws_security_group" "ibm-web-nacl-sg" {
+resource "aws_security_group" "ibm-web-sg" {
   name        = "ibm-web-traffic"
   description = "Allow SSH - HTTP inbound traffic"
   vpc_id      = aws_vpc.ibm-vpc.id
@@ -181,7 +181,7 @@ resource "aws_security_group" "ibm-web-nacl-sg" {
 }
 
 # Databse security group
-resource "aws_security_group" "ibm-db-nacl-sg" {
+resource "aws_security_group" "ibm-db-sg" {
   name        = "ibm-db-traffic"
   description = "Allow SSH - Postgres inbound traffic"
   vpc_id      = aws_vpc.ibm-vpc.id
