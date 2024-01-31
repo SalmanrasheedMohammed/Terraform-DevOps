@@ -211,3 +211,4 @@ resource "aws_security_group" "myntra-db-nacl-sg" {
     Name = "myntra-db-sg"
   }
 }
+}
