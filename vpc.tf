@@ -66,3 +66,4 @@ resource "aws_route_table" "myntra-database-rt" {
  tags = {
     Name = "myntra-database-route-table"
   }
+}
