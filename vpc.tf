@@ -32,3 +32,13 @@ resource "aws_subnet" "myntra-db-sn" {
     Name = "Myntra-database-subnet"
   }
 }
+
+# Internet gateway
+
+resource "aws_internet_gateway" "myntra-igw" {
+  vpc_id = aws_vpc.myntra-vpc.id
+
+  tags = {
+    Name = "myntra-internet-gateway"
+  }
+}
