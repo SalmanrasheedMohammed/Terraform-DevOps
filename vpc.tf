@@ -19,3 +19,16 @@ resource "aws_subnet" "myntra-web-sn" {
     Name = "Myntra-web-subnet"
   }
 }
+
+# Database subnet
+
+resource "aws_subnet" "myntra-db-sn" {
+  vpc_id     = aws_vpc.myntra-vpc.id
+  cidr_block = "10.0.1.0/24"
+  availability_zone = "us-west-2a"
+  map_public_ip_on_launch = "true"
+
+  tags = {
+    Name = "Myntra-database-subnet"
+  }
+}
